@@ -1,0 +1,48 @@
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  z-index: -1; 
+}
+
+.button-container {
+    display: flex;
+    background-color: #f5f5f5;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    margin: 20px auto; 
+    width: 100%; 
+  }
+  
+  .image-button {
+    border: none; 
+    background-color: #f5f5f5; 
+    padding: 10px; 
+    cursor: pointer; 
+    text-align: center; 
+    display: inline-flex; 
+    align-items: center; 
+    transition: all 0.2s ease-in-out; 
+  }
+  
+  .image-button:hover {
+    background-color: #f5f5f5; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .image-button img {
+    width: 267px; 
+    height: 319px; 
+    display: block; 
+    margin-bottom: 5px; 
+  }
+  
+  .image-button p {
+    color: #333; 
+    font-size: 14px;
+    margin: 0; 
+  }
+  
