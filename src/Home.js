@@ -1,29 +1,39 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Updated import
+import { useNavigate } from 'react-router-dom';
+import { auth } from './firebase';
 import './Home.css';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import logo from './logo.png';
-
 
 function Home() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();  // Use useNavigate
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+  const authorizedUid = 'GxDbMf28SRfXxdLZ3kLf8bzYoIC3'; // Authorized UID
 
   const handleSignIn = () => {
-    // Implement your sign-in logic here
-    // For example, using Firebase Authentication
-    // If sign-in is successful, redirect to the dashboard
-    // Replace this with your actual authentication logic
-    if (email === 'admin@gmail.com' && password === 'pass') {
-      navigate('/dashboard');  // Use navigate to redirect
-    } else {
-      alert('Invalid email or password');
-    }
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        if (user.uid === authorizedUid) {
+          // Authorized user, navigate to another page
+          navigate('/dashboard');
+        } else {
+          // Not authorized, display error message
+          setErrorMessage('User is not authorized.');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        // Handle invalid credentials error
+        setErrorMessage('Invalid email or password.');
+      });
   };
 
   return (
     <div>
-        <img src={logo} alt="ADDMAS Admin Login Logo" className="logo" />
+      <img src={logo} alt="ADDMAS Admin Login Logo" className="logo" />
       <h2>ADDMAS Admin Login</h2>
       <div>
         <form onSubmit={(e) => { e.preventDefault(); handleSignIn(); }}>
@@ -41,6 +51,7 @@ function Home() {
           />
           <button type="submit">Sign In</button>
         </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
     </div>
   );

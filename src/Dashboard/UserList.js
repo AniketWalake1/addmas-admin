@@ -33,9 +33,16 @@ function UserList() {
     }
   };
 
+  const handleRefresh = () => {
+    fetchUsers();
+  };
+
   return (
-    <div>
+    <div className="container2">
       <h2>Registered Users</h2>
+      <button onClick={handleRefresh} className="btn btn-primary">
+        Refresh User List
+      </button>
       <table>
         <thead>
           <tr>
@@ -47,10 +54,12 @@ function UserList() {
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
-              <td>{user.fname}</td>
-              <td>{user.email}</td>
+              <td className="name">{user.name}</td> {/* Assuming the field is 'name', not 'fname' */}
+              <td className="email">{user.email}</td>
               <td>
-                <button onClick={() => handleDeleteUser(user.id)}>Delete</button>
+                <button onClick={() => handleDeleteUser(user.id)} className="btn btn-danger">
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

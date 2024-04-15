@@ -1,3 +1,4 @@
+// App.js
 import React from 'react';
 import RegisterOperator from './RegisterOperator';
 import UserList from './UserList';

@@ -1,17 +1,15 @@
 // RegisterOperator.js
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { collection, addDoc } from 'firebase/firestore';
-import { auth, db } from '../firebase';
-import UserList from './UserList';
+import { auth, db } from '../firebase'; // Assuming this imports your Firebase configuration correctly
 
 function RegisterOperator() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
-  const navigate = useNavigate();
+  const [message, setMessage] = useState(null);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -19,19 +17,13 @@ function RegisterOperator() {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log('User registered:', userCredential.user);
 
-      // Store user data in Firestore (after successful registration)
       const userRef = collection(db, 'users');
-      await addDoc(userRef, { email: email, fname: name });
+      await addDoc(userRef, { email: email, name: name });
 
       setName('');
       setEmail('');
       setPassword('');
-      setErrorMessage('User Registered');
-
-      // Call the fetchUsers function in the UserList component
-      UserList.fetchUsers();
-
-      navigate('/Dashboard');
+      setMessage('User Registered');
     } catch (error) {
       console.error('Registration error:', error.message);
       setErrorMessage(error.message);
@@ -39,8 +31,8 @@ function RegisterOperator() {
   };
 
   return (
-    <div>
-      <h2>Register a Operator</h2>
+    <div className="container">
+      <h2>Register an Operator</h2>
       <form onSubmit={handleRegister}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
@@ -75,6 +67,7 @@ function RegisterOperator() {
             required
           />
         </div>
+        {message && <p className="message">{message}</p>}
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button type="submit" className="btn btn-primary">
           Register

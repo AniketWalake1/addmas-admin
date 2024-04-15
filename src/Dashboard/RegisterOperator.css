@@ -26,7 +26,10 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-  
+  .message {
+    color: rgb(0, 255, 85);
+    margin-top: 10px;
+  } 
   .error-message {
     color: red;
     margin-top: 10px;
