@@ -53,15 +53,18 @@ function UserList() {
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr key={user.id}>
-              <td className="name">{user.name}</td> {/* Assuming the field is 'name', not 'fname' */}
-              <td className="email">{user.email}</td>
-              <td>
-                <button onClick={() => handleDeleteUser(user.id)} className="btn btn-danger">
-                  Delete
-                </button>
-              </td>
-            </tr>
+            // Check if the user has a name before rendering
+            user.name ? (
+              <tr key={user.id}>
+                <td className="name">{user.name}</td>
+                <td className="email">{user.email}</td>
+                <td>
+                  <button onClick={() => handleDeleteUser(user.id)} className="btn btn-danger">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ) : null
           ))}
         </tbody>
       </table>
