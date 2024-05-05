@@ -56,7 +56,7 @@ function UserList() {
             // Check if the user has a name before rendering
             user.name ? (
               <tr key={user.id}>
-                <td className="name">{user.name}</td>
+                <td className="fName">{user.name}</td>
                 <td className="email">{user.email}</td>
                 <td>
                   <button onClick={() => handleDeleteUser(user.id)} className="btn btn-danger">

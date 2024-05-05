@@ -1,12 +1,11 @@
-// RegisterOperator.js
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { collection, addDoc } from 'firebase/firestore';
 import { auth, db } from '../firebase'; // Assuming this imports your Firebase configuration correctly
 
-function RegisterOperator() {
-  const [name, setName] = useState('');
+function SignUp() {
   const [email, setEmail] = useState('');
+  const [fName, setName] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const [message, setMessage] = useState(null);
@@ -18,10 +17,10 @@ function RegisterOperator() {
       console.log('User registered:', userCredential.user);
 
       const userRef = collection(db, 'users');
-      await addDoc(userRef, { email: email, name: name });
-
-      setName('');
+      await addDoc(userRef, { email: email, fName: fName });
+      
       setEmail('');
+      setName('');
       setPassword('');
       setMessage('User Registered');
     } catch (error) {
@@ -32,15 +31,15 @@ function RegisterOperator() {
 
   return (
     <div className="container">
-      <h2>Register an Operator</h2>
+      <h2>Register</h2>
       <form onSubmit={handleRegister}>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="fName">Name</label>
           <input
             type="text"
             className="form-control"
-            id="name"
-            value={name}
+            id="fName"
+            value={fName}
             onChange={(e) => setName(e.target.value)}
             required
           />
@@ -77,4 +76,5 @@ function RegisterOperator() {
   );
 }
 
-export default RegisterOperator;
+export default SignUp;
+

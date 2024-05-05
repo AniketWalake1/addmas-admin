@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "admass-login-register",
     "public": "build",
     "ignore": [
       "firebase.json",
