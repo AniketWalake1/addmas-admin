@@ -17,7 +17,7 @@ function SignUp() {
       console.log('User registered:', userCredential.user);
 
       const userRef = collection(db, 'users');
-      await addDoc(userRef, { email: email, fName: fName });
+      await addDoc(userRef, { email: email, fName: fName }, 'custom-document-id');
       
       setEmail('');
       setName('');

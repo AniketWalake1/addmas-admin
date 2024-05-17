@@ -9,6 +9,7 @@ import MaintenanceRecord from './Dashboard/MaintenanceRecord.js'
 import SetTarget from './Dashboard/SetTarget.js'
 import CheckReports from './Dashboard/CheckReports.js'
 import Operator from './Dashboard/Operator.js'
+import Target from './Dashboard/Target.js'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/SetTarget" element={<SetTarget />} />
         <Route path="/CheckReports" element={<CheckReports />} />
         <Route path="/Operator" element={<Operator />} />
+        <Route path="/Target" element={<Target />} />
       </Routes>
       <Outlet />  {/* This is where matched route content will be rendered */}
     </Router>

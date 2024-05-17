@@ -27,7 +27,7 @@ function UserList() {
   const handleDeleteUser = async (userId) => {
     try {
       await deleteDoc(doc(db, 'users', userId));
-      setUsers(users.filter((user) => user.id !== userId));
+      setUsers(users.filter((users) => users.id !== userId));
     } catch (error) {
       console.error('Error deleting user:', error);
     }
@@ -52,14 +52,14 @@ function UserList() {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {users.map((users) => (
             // Check if the user has a name before rendering
-            user.name ? (
-              <tr key={user.id}>
-                <td className="fName">{user.name}</td>
-                <td className="email">{user.email}</td>
+            users.fName ? (
+              <tr key={users.id}>
+                <td className="fName">{users.fName}</td>
+                <td className="email">{users.email}</td>
                 <td>
-                  <button onClick={() => handleDeleteUser(user.id)} className="btn btn-danger">
+                  <button onClick={() => handleDeleteUser(users.id)} className="btn btn-danger">
                     Delete
                   </button>
                 </td>

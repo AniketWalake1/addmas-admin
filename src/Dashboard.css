@@ -46,4 +46,10 @@
     font-size: 14px;
     margin: 0; 
   }
-  
+  @media (max-width: 767px) {
+
+    .button-container {
+      flex-direction: column; /* Stack buttons vertically */
+      align-items: center; /* Center the buttons horizontally */
+    }
+  }

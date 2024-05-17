@@ -33,7 +33,7 @@ function Dashboard() {
 
         <button
           className="image-button"
-          onClick={() => handleButtonClick('SetTarget')}
+          onClick={() => handleButtonClick('Target')}
         >
           <img src={set_target} alt="Set Target" />
         </button>

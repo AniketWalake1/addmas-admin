@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { db } from '../firebase'; // Assuming you have your Firestore instance imported as 'db'
+import { db } from '../firebase'; // Ensure you have your Firestore instance imported
 import { collection, addDoc } from 'firebase/firestore';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';

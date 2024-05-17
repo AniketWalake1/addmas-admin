@@ -1,0 +1,43 @@
+.jobs-completed-list-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .jobs-completed-list-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .jobs-completed-list-container table th,
+  .jobs-completed-list-container table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .jobs-completed-list-container table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .jobs-completed-list-container table td {
+    background-color: #fff;
+  }
+  
+  .jobs-completed-list-container table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .jobs-completed-list-container table tr:hover {
+    background-color: #ddd;
+  }
+  
+  .jobs-completed-list-container h2 {
+    text-align: center;
+  }
+  

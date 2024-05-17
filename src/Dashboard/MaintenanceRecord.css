@@ -1,37 +1,57 @@
-/* MaintenanceRecord.css */
-
-/* Style for the overall container */
-div {
+/* Style the overall container (optional) */
+.maintenance-record-container {
   margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
 
-/* Style for the table */
-table {
-  width: 100%;
-  border-collapse: collapse;
+/* Style the Breakdown ID section */
+.breakdown-id-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center elements horizontally */
+  margin-right: 20px;
+  width: 20%; /* Adjust width as needed */
+  background-color: #f0f8ff; /* Light blue background */
+  border-radius: 8px; /* Rounded corners for the section */
+  padding: 15px; /* Add some padding */
 }
 
-/* Style for table headers */
-th {
-  background-color: #f2f2f2;
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
+.breakdown-id-container h3 {
+  margin: 5px 0;
+  font-size: 1.2rem; /* Adjust font size as needed */
+  color: #333; /* Darker text color */
 }
 
-/* Style for table cells */
+.breakdown-id-container label {
+  margin: 5px 0;
+  font-weight: bold; /* Make labels bold */
+  color: #666; /* Grayish text color */
+}
+
+/* Style the Breakdown Details section */
+.breakdown-details-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%; /* Adjust width as needed */
+  padding: 15px; /* Add some padding */
+}
+
+.breakdown-details-container div {
+  margin: 10px; /* Adjust spacing between details */
+  padding: 15px;
+  border-radius: 4px; /* Rounded corners for details */
+  background-color: #f8f8f8; /* Light background color */
+  color: #333; /* Darker text color */
+  font-weight: bold; /* Bold text for details */
+  /* Consider using a grid layout for more complex layouts */
+}
+
+
+/* Style for table cells (optional) */
 td {
   border: 1px solid #ddd;
   padding: 8px;
-}
-
-/* Style for alternate rows */
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-/* Style for table header */
-h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
 }

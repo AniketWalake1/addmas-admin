@@ -5,7 +5,6 @@ import "./CheckReports.css"
 import * as xlsx from 'xlsx';
 
 const exportToExcel = (data, fileName) => {
-  
   const headers = [
     'Time',
     'Shift',
@@ -133,7 +132,7 @@ function OrdersList() {
       'Chamfer 0.5x45': order.Chamfer_0_5x45,
       'Chamfer 1x30': order.Chamfer_1x30,
       'Radius R0.3': order.Radius_R0_3,
-      'Radius R0.5': order.Radius_R0_5,
+      'Radius R0.5': order.R0_5,
       'Radius R10': order.Radius_R10,
       'Depth 19.2': order.Depth_19_2,
       'Depth 5.0': order.Depth_5_0,
@@ -172,7 +171,7 @@ function OrdersList() {
       'Chamfer 0.5x45': order.Chamfer_0_5x45,
       'Chamfer 1x30': order.Chamfer_1x30,
       'Radius R0.3': order.Radius_R0_3,
-      'Radius R0.5': order.Radius_R0_5,
+      'Radius R0.5': order.R0_5,
       'Radius R10': order.Radius_R10,
       'Depth 19.2': order.Depth_19_2,
       'Depth 5.0': order.Depth_5_0,
@@ -198,7 +197,7 @@ function OrdersList() {
   }
 
   const groupedOrders = orders.reduce((acc, order) => {
-    const key = `${order.Date}-${order.Shift}-${order.JobNumber}`;
+    const key = `${order.Date}-${order.Shift}`;
     if (!acc[key]) {
       acc[key] = [];
     }
@@ -208,15 +207,15 @@ function OrdersList() {
 
   return (
     <div className="orders-container">
-    <button onClick={exportAll}>Export All</button>
+      <button onClick={exportAll}>Export All</button>
       {Object.keys(groupedOrders).length === 0 ? (
         <div className="no-orders">No Data Available</div>
       ) : (
         Object.keys(groupedOrders).map((key) => {
-          const [date, shift, jobNumber] = key.split('-');
+          const [date, shift] = key.split('-');
           return (
             <div key={key} className="orders-section">
-              <h3>Date: {date}, Shift: {shift}, Job Number: {jobNumber}</h3>
+              <h3>Date: {date}, Shift: {shift}</h3>
               <button onClick={() => exportByDateAndShift(date, shift)}>
                 Export {date} - {shift}
               </button>
