@@ -2,6 +2,7 @@
 import React from 'react';
 import RegisterOperator from './RegisterOperator';
 import UserList from './UserList';
+import SelectJob from './SelectJob';
 import './Operator.css';
 
 function App() {
@@ -12,6 +13,9 @@ function App() {
       </div>
       <div className="right-column">
         <UserList />
+      </div>
+      <div className="right-column">
+        <SelectJob />
       </div>
     </div>
   );
